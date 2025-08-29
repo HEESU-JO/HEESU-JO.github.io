@@ -1,150 +1,127 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HEESU JO | Portfolio</title>
   <style>
-    :root {
-      --blue: #0a56c2;
-      --text: #1c1e21;
-      --muted: #6b7280;
-      --bg: #ffffff;
-      --line: #e6e9ef;
+    :root{
+      --ink:#0b1220; --muted:#5b6473; --brand:#0a56c2; --line:#e8ecf3; --bg:#ffffff;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans KR", Arial, sans-serif;
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
-    }
-    /* Left column */
-    .tagline { color: var(--blue); font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; }
-    .name { font-size: clamp(40px, 6vw, 64px); font-weight: 900; color: var(--blue); margin: 0 0 24px; }
-    .contact { margin: 20px 0 56px; }
-    .contact a { color: var(--text); text-decoration: none; }
-    .section-title {
-      color: var(--blue);
-      letter-spacing: .35em;
-      font-weight: 800;
-      margin: 0 0 16px;
-    }
-    .about {
-      margin-top: 12px;
-      border-top: 4px solid var(--blue);
-      padding-top: 18px;
-    }
-    /* Right column blocks */
-    .block { margin-bottom: 48px; }
-    .kv { display:flex; justify-content:space-between; gap:16px; }
-    .kv .k { color: var(--muted); min-width: 110px; }
-    .kv .v { font-weight: 600; }
-    .skills { display:flex; flex-wrap:wrap; gap:14px 18px; }
-    .chip {
-      border: 1px solid var(--line);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-    }
-    .chip i { font-style: normal; }
-    /* Project cards (옵션) */
-    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px; }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 12px; padding: 16px 18px;
-      transition: transform .18s ease, box-shadow .18s ease;
-      background:#fff;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
-    .card h4 { margin: 0 0 8px; color: var(--blue); }
-    .muted { color: var(--muted); }
-    footer {
-      border-top: 1px solid var(--line);
-      max-width: 1100px; margin: 36px auto 24px; padding: 16px 20px 0;
-      text-align: center; color: var(--muted); font-size: 14px;
-    }
-    @media (max-width: 880px) { .wrap { grid-template-columns: 1fr; gap: 28px; } }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans KR",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:820px;margin:0 auto;padding:20px}
+    /* top nav */
+    .nav{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(6px);border-bottom:1px solid var(--line);z-index:10}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;max-width:820px;margin:0 auto}
+    .nav a{color:var(--ink);font-weight:600}
+    .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px}
+    /* hero */
+    .hero{padding:32px 20px 12px}
+    .title{font-size:clamp(28px,6vw,42px);font-weight:900;margin:8px 0 6px;color:var(--brand)}
+    .tag{color:var(--muted);margin-bottom:18px}
+    .row{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#fff}
+    /* sections */
+    section{padding:20px;border-top:1px solid var(--line)}
+    section h2{font-size:18px;letter-spacing:.18em;color:var(--brand);margin:0 0 10px}
+    p{margin:8px 0}
+    /* lists */
+    .list{display:flex;flex-direction:column;gap:14px;margin:8px 0}
+    .item{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+    .item h3{margin:0 0 6px;font-size:16px}
+    .meta{color:var(--muted);font-size:14px}
+    footer{padding:30px 20px;color:var(--muted);text-align:center}
+    @media(min-width:780px){.hero{padding-top:40px}}
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <!-- Left column -->
-    <section>
-      <div class="tagline">데이터로 움직이는 가치를 만든다.</div>
-      <h1 class="name">HEESU JO</h1>
-
-      <div class="contact">
-        <div>TEL. 010-6749-9949</div>
-        <div><a href="mailto:jhs72113@gmail.com">jhs72113@gmail.com</a></div>
-        <div><a href="https://github.com/HEESU-JO" target="_blank" rel="noreferrer">github.com/HEESU-JO</a></div>
-        <div><a href="https://heesu-jo.github.io" target="_blank" rel="noreferrer">HEESU-JO.github.io</a></div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <a href="#top">HEESU JO</a>
+      <div class="row">
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#profile">Profile</a>
+        <a class="btn" href="#skills">Skills</a>
+        <a class="btn" href="mailto:jhs72113@gmail.com">Contact</a>
       </div>
+    </div>
+  </div>
 
-      <h3 class="section-title">ABOUT ME</h3>
-      <div class="about">
-        저는 쌓인 데이터를 인사이트로 바꾸고, 그 인사이트를 실제 문제 해결과 가치 창출로 이어지게 만드는 것을 목표로 합니다.
-        의료·헬스케어 도메인의 데이터 분석과 AI 모델링에 관심이 많고, 결과를 이해하기 쉽게 전달하는 경험을 쌓아가고 있습니다.
-      </div>
-
-      <!-- (선택) 프로젝트 카드 섹션 -->
-      <h3 class="section-title" style="margin-top:40px;">PROJECTS</h3>
-      <div class="cards">
-        <article class="card">
-          <h4>멀티모달 의료 AI</h4>
-          <p class="muted">CXR·ECG·CRF 융합으로 질환 예측, XAI/가이드라인 연계</p>
-        </article>
-        <article class="card">
-          <h4>MRI Annotation Tool</h4>
-          <p class="muted">YOLO + U-Net 기반 자동 라벨링 보조 툴</p>
-        </article>
-        <article class="card">
-          <h4>Sepsis Prediction</h4>
-          <p class="muted">SOFA/APACHE II 활용 위험도 예측 및 해석</p>
-        </article>
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="tag">데이터로 움직이는 가치를 만든다.</div>
+      <h1 id="hero-title" class="title">HEESU JO</h1>
+      <p class="meta">데이터 분석 · 의료 AI</p>
+      <div class="row" style="margin:10px 0 4px">
+        <span class="chip">TEL. 010-6749-9949</span>
+        <a class="chip" href="mailto:jhs72113@gmail.com">jhs72113@gmail.com</a>
+        <a class="chip" href="https://github.com/HEESU-JO" target="_blank" rel="noreferrer">github.com/HEESU-JO</a>
       </div>
     </section>
 
-    <!-- Right column -->
-    <aside>
-      <div class="block">
-        <h3 class="section-title">EDUCATION</h3>
-        <div class="kv"><div class="k">2021.03 – 2025.08</div><div class="v">서울여자대학교 화학전공</div></div>
-      </div>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">ABOUT</h2>
+      <p>
+        저는 데이터를 분석해 <b>의미 있는 인사이트</b>를 만들고, 그 인사이트를
+        <b>실제 문제 해결과 의사결정</b>으로 연결합니다. 의료·헬스케어 데이터 분석과 AI 모델링을 중심으로,
+        결과를 <b>간결하고 이해하기 쉬운 형태</b>로 전달하는 데 집중합니다.
+      </p>
+    </section>
 
-      <div class="block">
-        <h3 class="section-title">ACTIVITY</h3>
-        <div class="kv"><div class="k">2025.02 – 2025.08</div><div class="v">ORACLE BIO ACADEMY</div></div>
-      </div>
-
-      <div class="block">
-        <h3 class="section-title">SKILLS</h3>
-        <div class="skills">
-          <span class="chip"><i>🐍</i> PYTHON</span>
-          <span class="chip"><i>🧮</i> R</span>
-          <span class="chip"><i>🧱</i> SQL</span>
-          <span class="chip"><i>📦</i> DOCKER</span>
-          <span class="chip"><i>🔥</i> PYTORCH</span>
-          <span class="chip"><i>⬆️</i> TENSORFLOW</span>
-          <!-- 필요하면 더 추가 -->
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">PROJECTS</h2>
+      <div class="list">
+        <div class="item">
+          <h3>통합 의료 데이터 분석을 통한 심뇌혈관 질환 신속 진단 AI 시스템</h3>
+          <p class="meta">CXR · ECG · CRF 융합 기반 멀티모달 분석, Cross-Attention, 임상 의사결정 지원</p>
+        </div>
+        <div class="item">
+          <h3>패혈증 중환자 사망예측 & XAI 기반 의사 결정 보조 서비스</h3>
+          <p class="meta">SOFA/APACHE II 점수 활용 예측, SHAP/XAI 기반 모델 해석 및 의사 보조</p>
+        </div>
+        <div class="item">
+          <h3>자동 MRI Annotation Tool</h3>
+          <p class="meta">YOLO + U-Net 기반 Detection & Segmentation 자동 라벨링 툴</p>
         </div>
       </div>
-    </aside>
+    </section>
+
+
+    <!-- PROFILE -->
+    <section id="profile" aria-labelledby="profile-title">
+      <h2 id="profile-title">PROFILE</h2>
+      <div class="list">
+        <div class="item">
+          <h3>EDUCATION</h3>
+          <p class="meta">2021.03 – 2025.08 · 서울여자대학교 화학전공</p>
+        </div>
+        <div class="item">
+          <h3>ACTIVITY</h3>
+          <p class="meta">2025.02 – 2025.08 · Oracle Bio Academy</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">SKILLS</h2>
+      <div class="row">
+        <span class="chip">Python</span>
+        <span class="chip">R</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Docker</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">TensorFlow</span>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 HEESU JO | Portfolio</footer>
+  <footer>© 2025 HEESU JO</footer>
 </body>
 </html>
