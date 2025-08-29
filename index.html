@@ -1,1 +1,150 @@
-<h1>Hello Portfolio</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HEESU JO | Portfolio</title>
+  <style>
+    :root {
+      --blue: #0a56c2;
+      --text: #1c1e21;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --line: #e6e9ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans KR", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+    }
+    /* Left column */
+    .tagline { color: var(--blue); font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; }
+    .name { font-size: clamp(40px, 6vw, 64px); font-weight: 900; color: var(--blue); margin: 0 0 24px; }
+    .contact { margin: 20px 0 56px; }
+    .contact a { color: var(--text); text-decoration: none; }
+    .section-title {
+      color: var(--blue);
+      letter-spacing: .35em;
+      font-weight: 800;
+      margin: 0 0 16px;
+    }
+    .about {
+      margin-top: 12px;
+      border-top: 4px solid var(--blue);
+      padding-top: 18px;
+    }
+    /* Right column blocks */
+    .block { margin-bottom: 48px; }
+    .kv { display:flex; justify-content:space-between; gap:16px; }
+    .kv .k { color: var(--muted); min-width: 110px; }
+    .kv .v { font-weight: 600; }
+    .skills { display:flex; flex-wrap:wrap; gap:14px 18px; }
+    .chip {
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+    }
+    .chip i { font-style: normal; }
+    /* Project cards (옵션) */
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px; padding: 16px 18px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      background:#fff;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .card h4 { margin: 0 0 8px; color: var(--blue); }
+    .muted { color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--line);
+      max-width: 1100px; margin: 36px auto 24px; padding: 16px 20px 0;
+      text-align: center; color: var(--muted); font-size: 14px;
+    }
+    @media (max-width: 880px) { .wrap { grid-template-columns: 1fr; gap: 28px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- Left column -->
+    <section>
+      <div class="tagline">데이터로 움직이는 가치를 만든다.</div>
+      <h1 class="name">HEESU JO</h1>
+
+      <div class="contact">
+        <div>TEL. 010-6749-9949</div>
+        <div><a href="mailto:jhs72113@gmail.com">jhs72113@gmail.com</a></div>
+        <div><a href="https://github.com/HEESU-JO" target="_blank" rel="noreferrer">github.com/HEESU-JO</a></div>
+        <div><a href="https://heesu-jo.github.io" target="_blank" rel="noreferrer">HEESU-JO.github.io</a></div>
+      </div>
+
+      <h3 class="section-title">ABOUT ME</h3>
+      <div class="about">
+        저는 쌓인 데이터를 인사이트로 바꾸고, 그 인사이트를 실제 문제 해결과 가치 창출로 이어지게 만드는 것을 목표로 합니다.
+        의료·헬스케어 도메인의 데이터 분석과 AI 모델링에 관심이 많고, 결과를 이해하기 쉽게 전달하는 경험을 쌓아가고 있습니다.
+      </div>
+
+      <!-- (선택) 프로젝트 카드 섹션 -->
+      <h3 class="section-title" style="margin-top:40px;">PROJECTS</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>멀티모달 의료 AI</h4>
+          <p class="muted">CXR·ECG·CRF 융합으로 질환 예측, XAI/가이드라인 연계</p>
+        </article>
+        <article class="card">
+          <h4>MRI Annotation Tool</h4>
+          <p class="muted">YOLO + U-Net 기반 자동 라벨링 보조 툴</p>
+        </article>
+        <article class="card">
+          <h4>Sepsis Prediction</h4>
+          <p class="muted">SOFA/APACHE II 활용 위험도 예측 및 해석</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Right column -->
+    <aside>
+      <div class="block">
+        <h3 class="section-title">EDUCATION</h3>
+        <div class="kv"><div class="k">2021.03 – 2025.08</div><div class="v">서울여자대학교 화학전공</div></div>
+      </div>
+
+      <div class="block">
+        <h3 class="section-title">ACTIVITY</h3>
+        <div class="kv"><div class="k">2025.02 – 2025.08</div><div class="v">ORACLE BIO ACADEMY</div></div>
+      </div>
+
+      <div class="block">
+        <h3 class="section-title">SKILLS</h3>
+        <div class="skills">
+          <span class="chip"><i>🐍</i> PYTHON</span>
+          <span class="chip"><i>🧮</i> R</span>
+          <span class="chip"><i>🧱</i> SQL</span>
+          <span class="chip"><i>📦</i> DOCKER</span>
+          <span class="chip"><i>🔥</i> PYTORCH</span>
+          <span class="chip"><i>⬆️</i> TENSORFLOW</span>
+          <!-- 필요하면 더 추가 -->
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>© 2025 HEESU JO | Portfolio</footer>
+</body>
+</html>
